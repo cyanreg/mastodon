@@ -5,13 +5,18 @@ class REST::InstanceSerializer < ActiveModel::Serializer
 
   attributes :uri, :title, :short_description, :description, :email,
              :version, :urls, :stats, :thumbnail,
-             :languages, :registrations, :approval_required, :invites_enabled
+             :languages, :registrations, :approval_required, :invites_enabled,
+             :max_toot_chars
 
   has_one :contact_account, serializer: REST::AccountSerializer
 
   has_many :rules, serializer: REST::RuleSerializer
 
   delegate :contact_account, :rules, to: :instance_presenter
+
+  def max_toot_chars
+    StatusLengthValidator::MAX_CHARS
+  end
 
   def uri
     Rails.configuration.x.local_domain
