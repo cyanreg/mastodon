@@ -109,7 +109,7 @@ const loadImage = inputFile => new Promise((resolve, reject) => {
 });
 
 const getOrientation = (img, type = 'image/png') => new Promise(resolve => {
-  if (!['image/jpeg', 'image/webp'].includes(type)) {
+  if (!['image/jpeg', 'image/webp', 'image/avif'].includes(type)) {
     resolve(1);
     return;
   }
