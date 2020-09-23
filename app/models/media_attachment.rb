@@ -148,7 +148,7 @@ class MediaAttachment < ApplicationRecord
   }.freeze
 
   GLOBAL_CONVERT_OPTIONS = {
-    all: '-quality 90 -strip +set modify-date +set create-date',
+    all: '-quality 95 -strip +set modify-date +set create-date',
   }.freeze
 
   IMAGE_LIMIT = 10.megabytes
