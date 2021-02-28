@@ -18,6 +18,10 @@ class REST::InstanceSerializer < ActiveModel::Serializer
     StatusLengthValidator::MAX_CHARS
   end
 
+  def max_toot_chars
+    StatusLengthValidator::MAX_CHARS
+  end
+
   def uri
     Rails.configuration.x.local_domain
   end
